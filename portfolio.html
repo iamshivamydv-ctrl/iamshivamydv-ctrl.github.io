@@ -1,0 +1,1317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shivam Yadav — ECE Engineer & Builder</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F7F6F3;
+    --white: #FFFFFF;
+    --blue: #2563EB;
+    --blue-light: #EFF6FF;
+    --blue-mid: #DBEAFE;
+    --text: #0F172A;
+    --text-2: #475569;
+    --text-3: #94A3B8;
+    --border: #E2E8F0;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+    --shadow: 0 4px 16px rgba(0,0,0,0.07), 0 1px 4px rgba(0,0,0,0.04);
+    --shadow-lg: 0 12px 40px rgba(0,0,0,0.10), 0 2px 8px rgba(0,0,0,0.04);
+    --radius: 16px;
+    --radius-sm: 10px;
+    --radius-pill: 999px;
+    --serif: 'DM Serif Display', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+    --transition: 0.25s cubic-bezier(0.4,0,0.2,1);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; font-size: 16px; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(247,246,243,0.82);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 max(24px, calc(50% - 640px));
+  }
+
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+  }
+
+  .nav-logo {
+    font-family: var(--serif);
+    font-size: 1.2rem;
+    color: var(--text);
+    text-decoration: none;
+    letter-spacing: -0.02em;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: var(--text-2);
+    font-size: 0.88rem;
+    font-weight: 500;
+    padding: 6px 12px;
+    border-radius: var(--radius-pill);
+    transition: color var(--transition), background var(--transition);
+  }
+
+  .nav-links a:hover, .nav-links a.active {
+    color: var(--text);
+    background: rgba(0,0,0,0.05);
+  }
+
+  .nav-links .nav-cta {
+    background: var(--blue);
+    color: #fff !important;
+    padding: 7px 18px;
+  }
+
+  .nav-links .nav-cta:hover {
+    background: #1D4ED8 !important;
+    color: #fff;
+  }
+
+  /* ── LAYOUT ── */
+  section { padding: 96px max(24px, calc(50% - 640px)); }
+  .section-label {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-bottom: 12px;
+  }
+  .section-title {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    line-height: 1.15;
+    letter-spacing: -0.03em;
+    color: var(--text);
+    margin-bottom: 16px;
+  }
+  .section-hint {
+    font-size: 0.84rem;
+    color: var(--text-3);
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  /* ── HERO ── */
+  #hero {
+    padding-top: 80px;
+    padding-bottom: 80px;
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 48px;
+    align-items: center;
+    min-height: calc(100vh - 60px);
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--blue-light);
+    border: 1px solid var(--blue-mid);
+    color: var(--blue);
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: var(--radius-pill);
+    margin-bottom: 28px;
+  }
+
+  .hero-badge::before {
+    content: '';
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: #22C55E;
+    flex-shrink: 0;
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%,100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.85); }
+  }
+
+  .hero-name {
+    font-family: var(--serif);
+    font-size: clamp(3rem, 7vw, 5.2rem);
+    line-height: 1.05;
+    letter-spacing: -0.04em;
+    color: var(--text);
+    margin-bottom: 6px;
+  }
+
+  .hero-name em {
+    font-style: italic;
+    color: var(--blue);
+  }
+
+  .hero-tagline {
+    font-size: 1.05rem;
+    color: var(--text-2);
+    max-width: 520px;
+    margin-bottom: 36px;
+    line-height: 1.65;
+    font-weight: 400;
+  }
+
+  .hero-btns {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--sans);
+    font-size: 0.92rem;
+    font-weight: 600;
+    padding: 12px 24px;
+    border-radius: var(--radius-pill);
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all var(--transition);
+  }
+
+  .btn-primary {
+    background: var(--blue);
+    color: #fff;
+    box-shadow: 0 4px 14px rgba(37,99,235,0.3);
+  }
+  .btn-primary:hover { background: #1D4ED8; transform: translateY(-1px); box-shadow: 0 6px 20px rgba(37,99,235,0.35); }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--text);
+    border: 1.5px solid var(--border);
+  }
+  .btn-outline:hover { border-color: var(--text); transform: translateY(-1px); }
+
+  /* Hero stats card */
+  .hero-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 28px;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--border);
+  }
+
+  .hero-card-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+
+  .stat-box {
+    background: var(--bg);
+    border-radius: var(--radius-sm);
+    padding: 16px;
+    text-align: center;
+  }
+
+  .stat-num {
+    font-family: var(--serif);
+    font-size: 2rem;
+    color: var(--text);
+    line-height: 1;
+    letter-spacing: -0.03em;
+  }
+
+  .stat-label {
+    font-size: 0.76rem;
+    color: var(--text-3);
+    margin-top: 4px;
+    font-weight: 500;
+  }
+
+  .hero-card-footer {
+    background: var(--blue);
+    border-radius: var(--radius-sm);
+    padding: 14px 16px;
+    color: #fff;
+    font-size: 0.82rem;
+    font-weight: 500;
+    line-height: 1.5;
+    text-align: center;
+  }
+
+  .hero-card-footer strong { font-weight: 700; display: block; margin-bottom: 2px; }
+
+  /* ── ABOUT ── */
+  #about { background: var(--white); }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 56px;
+    align-items: start;
+  }
+
+  .about-text p {
+    color: var(--text-2);
+    margin-bottom: 20px;
+    font-size: 1rem;
+    line-height: 1.75;
+  }
+
+  .domain-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 24px;
+  }
+
+  .pill {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-size: 0.8rem;
+    font-weight: 500;
+    padding: 6px 14px;
+    border-radius: var(--radius-pill);
+    transition: all var(--transition);
+  }
+  .pill:hover { background: var(--blue-light); border-color: var(--blue-mid); color: var(--blue); }
+
+  .info-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .info-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 18px;
+  }
+
+  .info-card-icon { font-size: 1.3rem; margin-bottom: 8px; }
+  .info-card-label { font-size: 0.73rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-3); margin-bottom: 4px; }
+  .info-card-value { font-size: 0.9rem; font-weight: 600; color: var(--text); line-height: 1.35; }
+  .info-card-sub { font-size: 0.78rem; color: var(--text-2); margin-top: 2px; }
+
+  /* ── SKILLS ── */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .skill-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 28px;
+    box-shadow: var(--shadow-sm);
+    transition: transform var(--transition), box-shadow var(--transition);
+  }
+  .skill-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+
+  .skill-card-title {
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--blue);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 7px; }
+  .skill-tag {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    font-size: 0.78rem;
+    font-weight: 500;
+    padding: 4px 10px;
+    border-radius: 6px;
+    color: var(--text-2);
+  }
+
+  /* ── PROJECTS ── */
+  #projects { background: var(--white); }
+
+  .projects-list { display: flex; flex-direction: column; gap: 20px; }
+
+  .project-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    cursor: pointer;
+    transition: box-shadow var(--transition), border-color var(--transition);
+    position: relative;
+  }
+
+  .project-card::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 4px;
+    background: var(--blue);
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform var(--transition);
+    border-radius: 4px 0 0 4px;
+  }
+
+  .project-card:hover { box-shadow: var(--shadow-lg); border-color: #CBD5E1; }
+  .project-card:hover::before { transform: scaleY(1); }
+
+  .project-card-inner {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 16px;
+    padding: 28px;
+    align-items: start;
+  }
+
+  .project-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: var(--blue-light);
+    border: 1px solid var(--blue-mid);
+    color: var(--blue);
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: var(--radius-pill);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .project-title {
+    font-family: var(--serif);
+    font-size: 1.4rem;
+    letter-spacing: -0.02em;
+    margin-bottom: 2px;
+  }
+
+  .project-subtitle {
+    font-size: 0.8rem;
+    color: var(--blue);
+    font-weight: 600;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .project-desc {
+    font-size: 0.92rem;
+    color: var(--text-2);
+    line-height: 1.65;
+    margin-bottom: 16px;
+  }
+
+  .project-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
+  .project-tag {
+    background: var(--white);
+    border: 1px solid var(--border);
+    color: var(--text-2);
+    font-size: 0.74rem;
+    font-weight: 500;
+    padding: 3px 9px;
+    border-radius: 6px;
+  }
+
+  .project-outcome {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 12px 16px;
+    font-size: 0.84rem;
+    color: var(--text);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .project-outcome-icon { color: var(--blue); font-size: 0.9rem; margin-top: 1px; flex-shrink: 0; }
+
+  .project-more-hint {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.8rem;
+    color: var(--text-3);
+    font-weight: 500;
+  }
+
+  .chevron {
+    display: inline-block;
+    transition: transform var(--transition);
+    font-style: normal;
+  }
+
+  .project-card.open .chevron { transform: rotate(180deg); }
+
+  /* Drawer */
+  .card-drawer {
+    display: none;
+    padding: 24px 28px;
+    border-top: 1px solid var(--border);
+    background: var(--white);
+    animation: slideDown 0.3s cubic-bezier(0.4,0,0.2,1) both;
+  }
+
+  .card-drawer.open { display: block; }
+
+  @keyframes slideDown {
+    from { opacity: 0; transform: translateY(-8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .drawer-title {
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-3);
+    margin-bottom: 16px;
+  }
+
+  .photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+  }
+
+  .photo-grid img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: var(--radius-sm);
+    display: block;
+    border: 1px solid var(--border);
+    transition: transform var(--transition), box-shadow var(--transition);
+  }
+
+  .photo-grid img:hover {
+    transform: scale(1.02);
+    box-shadow: var(--shadow-lg);
+  }
+
+  /* ── RESEARCH ── */
+  .research-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+  }
+
+  .research-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+    box-shadow: var(--shadow-sm);
+    transition: box-shadow var(--transition), transform var(--transition), border-color var(--transition);
+    overflow: hidden;
+  }
+
+  .research-card.clickable { cursor: pointer; }
+  .research-card.clickable:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); border-color: #CBD5E1; }
+
+  .research-icon { font-size: 1.6rem; margin-bottom: 12px; }
+  .research-title {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+    letter-spacing: -0.02em;
+  }
+  .research-desc { font-size: 0.85rem; color: var(--text-2); line-height: 1.6; margin-bottom: 12px; }
+
+  .research-card .card-drawer {
+    margin: 0 -24px -24px;
+    padding: 20px 24px;
+  }
+
+  /* ── EXPERIENCE ── */
+  #experience { background: var(--white); }
+
+  .timeline { position: relative; padding-left: 32px; }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 7px; top: 8px; bottom: 8px;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--blue), var(--blue-mid));
+    border-radius: 2px;
+  }
+
+  .timeline-item { position: relative; margin-bottom: 0; }
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -28px; top: 8px;
+    width: 12px; height: 12px;
+    border-radius: 50%;
+    background: var(--blue);
+    border: 3px solid var(--bg);
+    box-shadow: 0 0 0 2px var(--blue);
+  }
+
+  .exp-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 28px;
+    transition: box-shadow var(--transition);
+  }
+  .exp-card:hover { box-shadow: var(--shadow); }
+
+  .exp-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 6px; flex-wrap: wrap; gap: 8px; }
+  .exp-title { font-family: var(--serif); font-size: 1.3rem; letter-spacing: -0.02em; }
+  .exp-date {
+    background: var(--blue-light);
+    color: var(--blue);
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: var(--radius-pill);
+    white-space: nowrap;
+  }
+  .exp-company { font-size: 0.85rem; color: var(--blue); font-weight: 600; margin-bottom: 16px; }
+  .exp-points { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .exp-points li {
+    display: flex;
+    gap: 10px;
+    font-size: 0.88rem;
+    color: var(--text-2);
+    line-height: 1.55;
+  }
+  .exp-points li::before { content: '→'; color: var(--blue); flex-shrink: 0; font-size: 0.85rem; margin-top: 1px; }
+
+  /* ── ACHIEVEMENTS ── */
+  .achievements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+  }
+
+  .ach-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow var(--transition), transform var(--transition);
+  }
+
+  .ach-card.clickable { cursor: pointer; }
+  .ach-card.clickable:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+
+  .ach-card-inner { padding: 24px; flex: 1; }
+
+  .ach-rank {
+    font-family: var(--serif);
+    font-size: 3.5rem;
+    line-height: 1;
+    letter-spacing: -0.05em;
+    color: var(--blue);
+    margin-bottom: 12px;
+    opacity: 0.85;
+  }
+
+  .ach-title { font-size: 1rem; font-weight: 700; color: var(--text); margin-bottom: 6px; }
+  .ach-desc { font-size: 0.82rem; color: var(--text-2); line-height: 1.55; }
+
+  .ach-card .card-drawer {
+    margin: 0;
+    padding: 20px 24px;
+  }
+
+  /* ── CONTACT ── */
+  #contact {
+    background: #0F172A;
+    color: #fff;
+  }
+
+  #contact .section-label { color: #60A5FA; }
+  #contact .section-title { color: #fff; }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 56px;
+    align-items: center;
+  }
+
+  .contact-links { display: flex; flex-direction: column; gap: 14px; margin-top: 28px; }
+
+  .contact-link {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    text-decoration: none;
+    color: #CBD5E1;
+    font-size: 0.95rem;
+    transition: color var(--transition);
+  }
+  .contact-link:hover { color: #fff; }
+
+  .contact-link-icon {
+    width: 42px; height: 42px;
+    background: rgba(255,255,255,0.07);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+    transition: background var(--transition);
+  }
+  .contact-link:hover .contact-link-icon { background: var(--blue); }
+
+  .contact-cta {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: var(--radius);
+    padding: 36px;
+  }
+
+  .contact-cta-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #60A5FA;
+    margin-bottom: 12px;
+  }
+
+  .contact-cta-title {
+    font-family: var(--serif);
+    font-size: 1.6rem;
+    color: #fff;
+    margin-bottom: 12px;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+  }
+
+  .contact-cta-text { font-size: 0.9rem; color: #94A3B8; margin-bottom: 24px; line-height: 1.6; }
+
+  .btn-white {
+    background: #fff;
+    color: var(--text);
+    box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+  }
+  .btn-white:hover { background: #F1F5F9; transform: translateY(-1px); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #070E1A;
+    color: #475569;
+    text-align: center;
+    padding: 24px;
+    font-size: 0.8rem;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    #hero { grid-template-columns: 1fr; gap: 32px; }
+    .hero-card { max-width: 380px; }
+    .about-grid { grid-template-columns: 1fr; gap: 40px; }
+    .skills-grid { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+    .info-cards { grid-template-columns: 1fr 1fr; }
+    .nav-links { display: none; }
+  }
+
+  @media (max-width: 600px) {
+    section { padding-left: 20px; padding-right: 20px; padding-top: 64px; padding-bottom: 64px; }
+    #hero { padding-top: 48px; padding-bottom: 48px; min-height: auto; }
+    .project-card-inner { grid-template-columns: 1fr; }
+    .project-badge { align-self: flex-start; }
+    .hero-card-grid { grid-template-columns: repeat(2, 1fr); }
+    .info-cards { grid-template-columns: 1fr; }
+    .achievements-grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="#hero">SY</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#achievements">Achievements</a></li>
+      <li><a href="#contact" class="nav-cta">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<section id="hero">
+  <div class="hero-left">
+    <div class="hero-badge">Available for Internships &amp; Research Roles</div>
+    <h1 class="hero-name">Shivam<br><em>Yadav</em></h1>
+    <p class="hero-tagline">Electronics &amp; Communication Engineer at VIT Chennai — building hardware systems that move, sense, and adapt.</p>
+    <div class="hero-btns">
+      <a href="#projects" class="btn btn-primary">View Projects ↓</a>
+      <a href="#contact" class="btn btn-outline">Get in Touch</a>
+    </div>
+  </div>
+  <div class="hero-card">
+    <div class="hero-card-grid">
+      <div class="stat-box">
+        <div class="stat-num">8.99</div>
+        <div class="stat-label">CGPA</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">4+</div>
+        <div class="stat-label">Patents Filed</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">94%</div>
+        <div class="stat-label">Class XII</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">1st</div>
+        <div class="stat-label">Nokia Prize</div>
+      </div>
+    </div>
+    <div class="hero-card-footer">
+      <strong>🏆 MORPH — 1st Prize at Nokia Innovation</strong>
+      Internship offer extended upon winning
+    </div>
+  </div>
+</section>
+
+<!-- ── ABOUT ── -->
+<section id="about">
+  <div class="section-label">About Me</div>
+  <div class="about-grid">
+    <div class="about-text">
+      <h2 class="section-title">Engineer who builds things that work in the real world.</h2>
+      <p>I'm a B.Tech ECE student at VIT Chennai with a deep passion for systems that operate at the intersection of hardware and intelligence — rovers, UAVs, embedded platforms, and VLSI design. I don't just simulate; I prototype, test, and iterate until it flies, drives, or computes.</p>
+      <p>From winning the Nokia Innovation Prize with a modular rover to filing patents on aerial and agricultural systems, my work consistently reaches the stage where real engineers and industry stakeholders take notice.</p>
+      <div class="domain-pills">
+        <span class="pill">Embedded Systems</span>
+        <span class="pill">VLSI Design</span>
+        <span class="pill">Wireless Communication</span>
+        <span class="pill">Robotics</span>
+        <span class="pill">UAV Engineering</span>
+        <span class="pill">Antenna Design</span>
+      </div>
+    </div>
+    <div>
+      <div class="info-cards">
+        <div class="info-card">
+          <div class="info-card-icon">🎓</div>
+          <div class="info-card-label">College</div>
+          <div class="info-card-value">VIT Chennai</div>
+          <div class="info-card-sub">B.Tech ECE · Expected 2027</div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-icon">📍</div>
+          <div class="info-card-label">Location</div>
+          <div class="info-card-value">Varanasi, UP</div>
+          <div class="info-card-sub">India</div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-icon">💼</div>
+          <div class="info-card-label">Internship</div>
+          <div class="info-card-value">Open to Offers</div>
+          <div class="info-card-sub">Summer 2026</div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-icon">📄</div>
+          <div class="info-card-label">Research</div>
+          <div class="info-card-value">Paper Submitted</div>
+          <div class="info-card-sub">Wi-Fi 7 Swarm Robotics</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SKILLS ── -->
+<section id="skills">
+  <div class="section-label">Technical Skills</div>
+  <h2 class="section-title">Tools of the trade.</h2>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <div class="skill-card-title">⌨️ Programming</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">Java</span>
+        <span class="skill-tag">R</span>
+        <span class="skill-tag">MATLAB</span>
+        <span class="skill-tag">Verilog / HDL</span>
+        <span class="skill-tag">Embedded C</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-card-title">🛠️ Tools & Software</div>
+      <div class="skill-tags">
+        <span class="skill-tag">VS Code</span>
+        <span class="skill-tag">Google Colab</span>
+        <span class="skill-tag">Linux</span>
+        <span class="skill-tag">Keil ARM</span>
+        <span class="skill-tag">Ansys Electronics</span>
+        <span class="skill-tag">LTspice</span>
+        <span class="skill-tag">Modelsim</span>
+        <span class="skill-tag">Cadence</span>
+        <span class="skill-tag">Synopsys</span>
+        <span class="skill-tag">Code Composer</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-card-title">🔬 Core Domains</div>
+      <div class="skill-tags">
+        <span class="skill-tag">VLSI Design</span>
+        <span class="skill-tag">Embedded Systems</span>
+        <span class="skill-tag">Signal Processing</span>
+        <span class="skill-tag">Wireless Comm.</span>
+        <span class="skill-tag">Antenna Design</span>
+        <span class="skill-tag">Robotics</span>
+        <span class="skill-tag">Sensor Fusion</span>
+        <span class="skill-tag">UAV Systems</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PROJECTS ── -->
+<section id="projects">
+  <div class="section-label">Featured Projects</div>
+  <h2 class="section-title">Things I've actually built.</h2>
+  <div class="section-hint">💡 Click any card to see photos &amp; details</div>
+
+  <div class="projects-list">
+
+    <!-- MORPH -->
+    <div class="project-card" data-card="morph">
+      <div class="project-card-inner">
+        <div>
+          <div class="project-subtitle">Feb 2025 · Robotics &amp; IoT</div>
+          <h3 class="project-title">MORPH</h3>
+          <p class="project-desc">Multi-Operational Rover with Plug-and-Play Hardware — a modular rover platform where sensor modules snap onto a common base frame without system reconfiguration. Dramatically reduces deployment cost and R&amp;D iteration time across agriculture, hazard detection, and industrial applications.</p>
+          <div class="project-tags">
+            <span class="project-tag">Modular Hardware</span>
+            <span class="project-tag">Sensor Integration</span>
+            <span class="project-tag">Embedded C</span>
+            <span class="project-tag">Agriculture IoT</span>
+            <span class="project-tag">Gas Detection</span>
+          </div>
+          <div class="project-outcome">
+            <span class="project-outcome-icon">✦</span>
+            <span>Won <strong>1st Prize at Nokia Innovation Prize</strong>; internship offer extended; selected for MSME industry showcase</span>
+          </div>
+          <div class="project-more-hint">Click to see photos &amp; details <i class="chevron">⌄</i></div>
+        </div>
+        <span class="project-badge">🏆 Nokia Winner</span>
+      </div>
+      <div class="card-drawer" id="drawer-morph">
+        <div class="drawer-title">Photos</div>
+        <div class="photo-grid">
+          <img src="Morph/Morph 1.png" alt="MORPH photo 1">
+          <img src="Morph/Morph 2.png" alt="MORPH photo 2">
+          <img src="Morph/Morph 3.jpg" alt="MORPH photo 3">
+          <img src="Morph/Morph 4.jpg" alt="MORPH photo 4">
+        </div>
+      </div>
+    </div>
+
+    <!-- ZARVEX -->
+    <div class="project-card" data-card="zarvex">
+      <div class="project-card-inner">
+        <div>
+          <div class="project-subtitle">May 2025 · UAV Systems</div>
+          <h3 class="project-title">ZARVEX</h3>
+          <p class="project-desc">Zero-Tilt Aerial Recon with Vectored Engineered X-System — a VMITRA mechanism UAV with independently tiltable propellers and a dual-wing modular design. Achieves stable autonomous flight in GPS-denied environments using AI stabilization, IMU fusion, LiDAR, and ultrasonic sensing.</p>
+          <div class="project-tags">
+            <span class="project-tag">UAV / Drone</span>
+            <span class="project-tag">IMU Fusion</span>
+            <span class="project-tag">LiDAR</span>
+            <span class="project-tag">Ultrasonic</span>
+            <span class="project-tag">AI Stabilization</span>
+            <span class="project-tag">Obstacle Avoidance</span>
+          </div>
+          <div class="project-outcome">
+            <span class="project-outcome-icon">✦</span>
+            <span>Stable autonomous flight in GPS-denied environments; modular payload swap system validated</span>
+          </div>
+          <div class="project-more-hint">Click to see photos &amp; details <i class="chevron">⌄</i></div>
+        </div>
+        <span class="project-badge">Patent Pending</span>
+      </div>
+      <div class="card-drawer" id="drawer-zarvex">
+        <div class="drawer-title">Photos</div>
+        <div class="photo-grid">
+          <img src="Zarvex/zar1.jpg" alt="ZARVEX photo 1">
+          <img src="Zarvex/zar 2.jpg" alt="ZARVEX photo 2">
+          <img src="Zarvex/zar 3.jpg" alt="ZARVEX photo 3">
+          <img src="Zarvex/zar 4.png" alt="ZARVEX photo 4">
+        </div>
+      </div>
+    </div>
+
+    <!-- PRANA -->
+    <div class="project-card" data-card="prana">
+      <div class="project-card-inner">
+        <div>
+          <div class="project-subtitle">Aug 2025 · AgriTech &amp; Autonomous Systems</div>
+          <h3 class="project-title">PRANA</h3>
+          <p class="project-desc">Precision Rover for Agriculture, Navigation and Analytics — an autonomous agricultural rover with precision spraying, hybrid mechanical weeding, real-time soil analytics, and an AI pest analysis engine. Closes the loop between soil nutrient data and irrigation decisions.</p>
+          <div class="project-tags">
+            <span class="project-tag">Autonomous Navigation</span>
+            <span class="project-tag">NPK Sensor</span>
+            <span class="project-tag">GSM Module</span>
+            <span class="project-tag">Closed-Loop Control</span>
+            <span class="project-tag">AI Decision Engine</span>
+          </div>
+          <div class="project-outcome">
+            <span class="project-outcome-icon">✦</span>
+            <span>Closed-loop soil–irrigation control; presented at <strong>UK Innovate 2025</strong>; <strong>Top 500 Smart India Hackathon</strong></span>
+          </div>
+          <div class="project-more-hint">Click to see photos &amp; details <i class="chevron">⌄</i></div>
+        </div>
+        <span class="project-badge">Patent Pending</span>
+      </div>
+      <div class="card-drawer" id="drawer-prana">
+        <div class="drawer-title">Photos</div>
+        <div class="photo-grid">
+          <img src="Prana/Prana 1.jpg" alt="PRANA photo 1">
+          <img src="Prana/Prana 2.png" alt="PRANA photo 2">
+          <img src="Prana/Prana 3.jpg" alt="PRANA photo 3">
+          <img src="Prana/Prana 4.png" alt="PRANA photo 4">
+        </div>
+      </div>
+    </div>
+
+    <!-- UNIMOUNT -->
+    <div class="project-card" data-card="unimount">
+      <div class="project-card-inner">
+        <div>
+          <div class="project-subtitle">Jan 2026 · Embedded Platform Design</div>
+          <h3 class="project-title">UNIMOUNT</h3>
+          <p class="project-desc">Universal Intelligent Modular Hardware Platform — a centralized embedded control platform where interchangeable passive cartridges carry hardware-level IDs. Eliminates the need for per-module firmware, cuts BOM cost, and reduces failure points by removing redundant controllers.</p>
+          <div class="project-tags">
+            <span class="project-tag">Embedded Platform</span>
+            <span class="project-tag">Hardware ID</span>
+            <span class="project-tag">Cartridge System</span>
+            <span class="project-tag">PCB Design</span>
+            <span class="project-tag">System Reliability</span>
+          </div>
+          <div class="project-outcome">
+            <span class="project-outcome-icon">✦</span>
+            <span>Eliminated per-module controllers; significantly reduced BOM cost and hardware failure points</span>
+          </div>
+          <div class="project-more-hint">Click to see photos &amp; details <i class="chevron">⌄</i></div>
+        </div>
+        <span class="project-badge">Patent Pending</span>
+      </div>
+      <div class="card-drawer" id="drawer-unimount">
+        <div class="drawer-title">Photos</div>
+        <div class="photo-grid">
+          <img src="Unimount/uni1.png" alt="UNIMOUNT photo 1">
+          <img src="Unimount/uni2.png" alt="UNIMOUNT photo 2">
+          <img src="Unimount/uni 3.jpeg" alt="UNIMOUNT photo 3">
+          <img src="Unimount/uni 4.jpeg" alt="UNIMOUNT photo 4">
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── RESEARCH ── -->
+<section id="research">
+  <div class="section-label">Research &amp; Exploratory Builds</div>
+  <h2 class="section-title">Experiments &amp; deep dives.</h2>
+  <div class="section-hint">💡 Click any card to see photos &amp; details</div>
+
+  <div class="research-grid">
+
+    <div class="research-card clickable" data-card="bit8">
+      <div class="research-icon">🖥️</div>
+      <h3 class="research-title">8-Bit Computer from Scratch</h3>
+      <p class="research-desc">Built a fully functional 8-bit computer from discrete ICs — counters, registers, an ALU — with 7-segment displays. Every logic gate, hand-debugged and soldered.</p>
+      
+      </div>
+    </div>
+
+    <div class="research-card clickable" data-card="smarthome">
+      <div class="research-icon">🏠</div>
+      <h3 class="research-title">Smart Home Automation</h3>
+      <p class="research-desc">RFID access control, intruder detection with buzzer alert, LCD status display, and Wi-Fi cloud push notifications — a complete home automation prototype.</p>
+      <div class="project-more-hint" style="margin-top:8px">Click to see photos <i class="chevron">⌄</i></div>
+      <div class="card-drawer" id="drawer-smarthome">
+        <div class="drawer-title">Photos</div>
+        <div class="photo-grid">
+          <img src="other/Home security.jpeg" alt="Smart Home photo">
+        </div>
+      </div>
+    </div>
+
+    <div class="research-card">
+      <div class="research-icon">📡</div>
+      <h3 class="research-title">Wi-Fi 7 Swarm Robotics Research</h3>
+      <p class="research-desc">Submitted a research paper on MU-MIMO transceiver design optimized for swarm robotics — exploring how Wi-Fi 7's multi-link operation enables reliable low-latency coordination across large robot swarms.</p>
+      <div style="margin-top:12px">
+        <span class="pill">Research Paper</span>
+        <span class="pill" style="margin-left:6px">Submitted</span>
+      </div>
+    </div>
+
+    <div class="research-card clickable" data-card="aegis">
+      <div class="research-icon">🛡️</div>
+      <h3 class="research-title">AEGIS</h3>
+      <p class="research-desc">Adaptive Enclave-Guided Institutional Sentinel (2026) — edge-AI surveillance with pan–tilt optical actuation, secure enclave biometrics, and temporal identity verification for institutional attendance systems.</p>
+      <div class="project-more-hint" style="margin-top:8px">Click to see photos <i class="chevron">⌄</i></div>
+      <div class="card-drawer" id="drawer-aegis">
+        <div class="drawer-title">Photos</div>
+        <div class="photo-grid">
+          <img src="AGIS/Ageis 1.jpg" alt="AEGIS photo 1">
+          <img src="AGIS/Ageis 2.jpg" alt="AEGIS photo 2">
+          <img src="AGIS/Ageis 3.jpg" alt="AEGIS photo 3">
+          <img src="AGIS/Ageis 4.jpeg" alt="AEGIS photo 4">
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── EXPERIENCE ── -->
+<section id="experience">
+  <div class="section-label">Experience</div>
+  <h2 class="section-title">Where I've worked.</h2>
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="exp-card">
+        <div class="exp-header">
+          <h3 class="exp-title">Summer Intern — VLSI Physical Design</h3>
+          <span class="exp-date">May – June 2025</span>
+        </div>
+        <div class="exp-company">Industry · Physical Design Division</div>
+        <ul class="exp-points">
+          <li>Executed the complete VLSI physical design flow: synthesis, floor planning, placement, routing, and timing analysis</li>
+          <li>Analyzed IC design case studies focusing on scalability, power optimization, and fabrication constraints</li>
+          <li>Worked hands-on with industry-standard EDA tools including Cadence and Synopsys</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── ACHIEVEMENTS ── -->
+<section id="achievements">
+  <div class="section-label">Achievements</div>
+  <h2 class="section-title">Competitions &amp; recognition.</h2>
+  <div class="section-hint">💡 Click any card to see photos</div>
+
+  <div class="achievements-grid">
+
+    <div class="ach-card clickable" data-card="nokia">
+      <div class="ach-card-inner">
+        <div class="ach-rank">1st</div>
+        <div class="ach-title">Nokia Innovation Prize</div>
+        <div class="ach-desc">MORPH took 1st place at the Nokia Innovation Prize. Internship offer extended upon winning.</div>
+      </div>
+      <div class="card-drawer" id="drawer-nokia">
+        <div class="drawer-title">Photos</div>
+        <div class="photo-grid">
+          <img src="Nokia/Nokia 1.jpeg" alt="Nokia prize photo 1">
+          <img src="Nokia/Nokia 2.jpeg" alt="Nokia prize photo 2">
+        </div>
+      </div>
+    </div>
+
+    <div class="ach-card clickable" data-card="iaic">
+      <div class="ach-card-inner">
+        <div class="ach-rank">2nd</div>
+        <div class="ach-title">Industry Conclave (IAIC)</div>
+        <div class="ach-desc">2nd place finish at the VIT Chennai Industry-Academia Interface Conclave.</div>
+      </div>
+      <div class="card-drawer" id="drawer-iaic">
+        <div class="drawer-title">Photos</div>
+        <div class="photo-grid">
+          <img src="IAIC/IAIC 1.jpeg" alt="IAIC photo 1">
+          <img src="IAIC/IAIC 2.jpeg" alt="IAIC photo 2">
+          <img src="IAIC/IAIC3.jpeg" alt="IAIC photo 3">
+          <img src="IAIC/IAIC 4.jpeg" alt="IAIC photo 4">
+        </div>
+      </div>
+    </div>
+
+    <div class="ach-card">
+      <div class="ach-card-inner">
+        <div class="ach-rank">✦</div>
+        <div class="ach-title">MSME Showcase Selection</div>
+        <div class="ach-desc">Selected to present at MSME industry showcase — recognition of MORPH's commercial viability and engineering quality.</div>
+      </div>
+    </div>
+
+    <div class="ach-card clickable" data-card="ukinnovate">
+      <div class="ach-card-inner">
+        <div class="ach-rank">🌐</div>
+        <div class="ach-title">UK Innovate 2025</div>
+        <div class="ach-desc">Presented PRANA at the UK Innovate 2025 international innovation showcase.</div>
+      </div>
+      <div class="card-drawer" id="drawer-ukinnovate">
+        <div class="drawer-title">Photos</div>
+        <div class="photo-grid">
+          <img src="UK INNOVATE/uk 1.jpeg" alt="UK Innovate photo 1">
+          <img src="UK INNOVATE/uk 2.jpeg" alt="UK Innovate photo 2">
+          <img src="UK INNOVATE/uk 3.jpeg" alt="UK Innovate photo 3">
+        </div>
+      </div>
+    </div>
+
+    <div class="ach-card">
+      <div class="ach-card-inner">
+        <div class="ach-rank" style="font-size:2.2rem">Top 500</div>
+        <div class="ach-title">Smart India Hackathon 2025</div>
+        <div class="ach-desc">PRANA team ranked in the Top 500 nationwide at Smart India Hackathon 2025.</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── CONTACT ── -->
+<section id="contact">
+  <div class="contact-grid">
+    <div>
+      <div class="section-label">Contact</div>
+      <h2 class="section-title">Let's build something.</h2>
+      <div class="contact-links">
+        <a class="contact-link" href="/cdn-cgi/l/email-protection#592a31302f383420383d382f6a6c68686a193e34383035773a3634">
+          <div class="contact-link-icon">✉️</div>
+          <span class="__cf_email__" data-cfemail="3043585946515d4951545146030501010370575d51595c1e535f5d">[email&#160;protected]</span>
+        </a>
+        <a class="contact-link" href="tel:+919125358552">
+          <div class="contact-link-icon">📞</div>
+          +91 91253 58552
+        </a>
+        <a class="contact-link" href="https://linkedin.com/in/shivam-yadav-280229277" target="_blank">
+          <div class="contact-link-icon">in</div>
+          linkedin.com/in/shivam-yadav-280229277
+        </a>
+      </div>
+    </div>
+    <div class="contact-cta">
+      <div class="contact-cta-label">Open to Opportunities</div>
+      <div class="contact-cta-title">Internships &amp; Research Collaboration</div>
+      <p class="contact-cta-text">Whether it's embedded systems, UAV research, VLSI, or a cutting-edge hardware project — I'm ready to contribute. Let's connect and figure out what we can build together.</p>
+      <a href="/cdn-cgi/l/email-protection#a1d2c9c8d7c0ccd8c0c5c0d79294909092e1c6ccc0c8cd8fc2cecc" class="btn btn-white">Send Message →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <p>© 2026 Shivam Yadav · VIT Chennai · ECE Engineer &amp; Builder</p>
+</footer>
+
+<script>
+  // ── Card toggle (project cards) ──
+  document.querySelectorAll('.project-card').forEach(card => {
+    card.addEventListener('click', (e) => {
+      if (e.target.closest('.card-drawer')) return;
+      const key = card.dataset.card;
+      const drawer = document.getElementById('drawer-' + key);
+      if (!drawer) return;
+      const isOpen = card.classList.contains('open');
+      card.classList.toggle('open', !isOpen);
+      drawer.classList.toggle('open', !isOpen);
+    });
+  });
+
+  // ── Card toggle (research cards) ──
+  document.querySelectorAll('.research-card.clickable').forEach(card => {
+    card.addEventListener('click', (e) => {
+      if (e.target.closest('.card-drawer')) return;
+      const key = card.dataset.card;
+      const drawer = document.getElementById('drawer-' + key);
+      if (!drawer) return;
+      const isOpen = card.classList.contains('open');
+      card.classList.toggle('open', !isOpen);
+      drawer.classList.toggle('open', !isOpen);
+    });
+  });
+
+  // ── Card toggle (achievement cards) ──
+  document.querySelectorAll('.ach-card.clickable').forEach(card => {
+    card.addEventListener('click', (e) => {
+      if (e.target.closest('.card-drawer')) return;
+      const key = card.dataset.card;
+      const drawer = document.getElementById('drawer-' + key);
+      if (!drawer) return;
+      const isOpen = card.classList.contains('open');
+      card.classList.toggle('open', !isOpen);
+      drawer.classList.toggle('open', !isOpen);
+    });
+  });
+
+  // ── Nav active via IntersectionObserver ──
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        navLinks.forEach(a => {
+          a.classList.toggle('active', a.getAttribute('href') === '#' + id);
+        });
+      }
+    });
+  }, { rootMargin: '-40% 0px -55% 0px' });
+
+  sections.forEach(s => observer.observe(s));
+</script>
+</body>
+</html>
